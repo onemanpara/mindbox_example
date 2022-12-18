@@ -37,10 +37,7 @@ public class MindBox {
                 .preceding(0)
                 .click();
         String sourceAuthCode = $x("//div[@type='paragraph'][contains(text(), 'Ваш код подтверждения')]").innerText();
-        String authCode = String.valueOf(sourceAuthCode.charAt(23)) +
-                String.valueOf(sourceAuthCode.charAt(24)) +
-                String.valueOf(sourceAuthCode.charAt(25)) +
-                String.valueOf(sourceAuthCode.charAt(26));
+        String authCode = sourceAuthCode.replaceAll("\\D+", "");
         return authCode;
     }
 
